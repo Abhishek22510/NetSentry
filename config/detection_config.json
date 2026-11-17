@@ -1,0 +1,62 @@
+{
+  "limits": {
+    "max_upload_size_mb": 250,
+    "max_packets": 1000000
+  },
+  "rules": {
+    "NET-001": {
+      "name": "Possible Port Scan",
+      "enabled": true,
+      "unique_ports": 20,
+      "window_seconds": 10,
+      "severity": "Medium"
+    },
+    "NET-002": {
+      "name": "Unusually High TCP SYN Activity",
+      "enabled": true,
+      "syn_packets": 30,
+      "window_seconds": 10,
+      "severity": "High"
+    },
+    "NET-003": {
+      "name": "ICMP Burst",
+      "enabled": true,
+      "packet_count": 50,
+      "window_seconds": 10,
+      "severity": "Medium"
+    },
+    "NET-004": {
+      "name": "DNS Query Spike",
+      "enabled": true,
+      "query_count": 50,
+      "window_seconds": 60,
+      "severity": "Medium"
+    },
+    "NET-005": {
+      "name": "Long DNS Query Name",
+      "enabled": true,
+      "max_query_length": 100,
+      "severity": "Low"
+    },
+    "NET-006": {
+      "name": "Unusual Destination Port",
+      "enabled": true,
+      "expected_ports": [21, 22, 25, 53, 80, 123, 143, 443, 445, 587, 993, 995, 3389],
+      "severity": "Low"
+    },
+    "NET-007": {
+      "name": "High Traffic Volume",
+      "enabled": true,
+      "bytes": 10485760,
+      "window_seconds": 60,
+      "severity": "Medium"
+    },
+    "NET-008": {
+      "name": "High TCP Reset Ratio",
+      "enabled": true,
+      "rst_ratio": 0.5,
+      "minimum_tcp_packets": 20,
+      "severity": "Medium"
+    }
+  }
+}
